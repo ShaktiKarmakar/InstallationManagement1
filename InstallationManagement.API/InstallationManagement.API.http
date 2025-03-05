@@ -1,0 +1,6 @@
+@InstallationManagement.API_HostAddress = http://localhost:5186
+
+GET {{InstallationManagement.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

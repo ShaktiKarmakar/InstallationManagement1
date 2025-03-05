@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/InstallationManagement.Shared.props" />
+</Project>

@@ -1,0 +1,7 @@
+/Users/shakti/RiderProjects/InstallationManagement/InstallationManagement/obj/Debug/net9.0/InstallationManagement.csproj.AssemblyReference.cache
+/Users/shakti/RiderProjects/InstallationManagement/InstallationManagement/obj/Debug/net9.0/InstallationManagement.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shakti/RiderProjects/InstallationManagement/InstallationManagement/obj/Debug/net9.0/InstallationManagement.AssemblyInfoInputs.cache
+/Users/shakti/RiderProjects/InstallationManagement/InstallationManagement/obj/Debug/net9.0/InstallationManagement.AssemblyInfo.cs
+/Users/shakti/RiderProjects/InstallationManagement/InstallationManagement/obj/Debug/net9.0/InstallationManagement.csproj.CoreCompileInputs.cache
+/Users/shakti/RiderProjects/InstallationManagement/InstallationManagement/obj/Debug/net9.0/InstallationManagement.MvcApplicationPartsAssemblyInfo.cs
+/Users/shakti/RiderProjects/InstallationManagement/InstallationManagement/obj/Debug/net9.0/InstallationManagement.MvcApplicationPartsAssemblyInfo.cache

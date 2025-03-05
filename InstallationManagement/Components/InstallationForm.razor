@@ -1,0 +1,31 @@
+@page "/installation-form"
+@using Radzen
+@using Radzen.Blazor
+@using InstallationManagement.Shared  
+@using InstallationManagement.Shared.Models
+@* Ensure the shared models are accessible *@
+
+<RadzenTemplateForm Data="@installationModel" Submit="@OnSubmit">
+    <ChildContent Context="formContext">  @* Fix: Change 'context' to 'formContext' *@
+        <RadzenFieldset Text="Installation Details">
+            <RadzenTextBox Label="Customer ID" Style="width: 100%;" @bind-Value="formContext.CustomerId" />
+            <RadzenTextBox Label="Machine Modality" Style="width: 100%;" @bind-Value="formContext.MachineModality" />
+            <RadzenDatePicker Label="Installation Date" Style="width: 100%;" @bind-Value="formContext.InstallationDate" />
+            <RadzenDropDown Label="Status" Style="width: 100%;" Data="@statusOptions" @bind-Value="formContext.Status" />
+        </RadzenFieldset>
+
+        <RadzenButton Text="Submit" Type="Submit" Style="margin-top: 10px;" />
+    </ChildContent>
+</RadzenTemplateForm>
+
+@code {
+    private InstallationModel installationModel = new InstallationModel();  // Ensure model is initialized
+
+    private List<string> statusOptions = new List<string> { "Pending", "Completed", "Cancelled" };
+
+    private async Task OnSubmit()
+    {
+        // Handle form submission
+        Console.WriteLine($"Submitted: {installationModel.CustomerId}, {installationModel.MachineModality}, {installationModel.InstallationDate}, {installationModel.Status}");
+    }
+}

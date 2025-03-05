@@ -1,0 +1,46 @@
+@page "/installations"
+@inject HttpClient Http
+@inject DialogService DialogService
+@using InstallationManagement.Shared.Models
+@using Radzen
+@using Radzen.Blazor
+
+<h3>Installations</h3>
+
+<RadzenButton Text="Load Installations" Click="@LoadData" Style="margin-bottom:10px" />
+
+<RadzenDataGrid Data="@installations" TItem="InstallationModel" RowSelect="@OnRowSelect"
+                AllowPaging="true" PageSize="10" AllowSorting="true">
+    <Columns>
+        <RadzenDataGridColumn TItem="InstallationModel" Property="Id" Title="ID" />
+        <RadzenDataGridColumn TItem="InstallationModel" Property="CustomerId" Title="Customer ID" />
+        <RadzenDataGridColumn TItem="InstallationModel" Property="MachineModality" Title="Machine Modality" />
+        <RadzenDataGridColumn TItem="InstallationModel" Property="InstallationDate" Title="Date" Format="{0:yyyy-MM-dd}" />
+        <RadzenDataGridColumn TItem="InstallationModel" Property="Status" Title="Status" />
+    </Columns>
+</RadzenDataGrid>
+
+@code {
+    private List<InstallationModel> installations = new(); // ✅ Fixes null reference warning
+
+    private async Task LoadData()
+    {
+        try
+        {
+            installations = await Http.GetFromJsonAsync<List<InstallationModel>>("https://localhost:5001/api/Installation")
+                            ?? new List<InstallationModel>(); // ✅ Prevents null assignment
+        }
+        catch (Exception ex)
+        {
+            await DialogService.Alert($"Error loading data: {ex.Message}");
+        }
+    }
+
+    private async Task OnRowSelect(InstallationModel installation)
+    {
+        if (installation != null)
+        {
+            await DialogService.Alert($"Selected Installation: {installation.CustomerId}");
+        }
+    }
+}
